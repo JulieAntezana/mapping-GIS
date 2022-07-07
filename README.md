@@ -31,6 +31,7 @@ The programming language used is JavaScript and HTML.
 
 {Make a list of websites that you found helpful in this project}
 * [ArcGIS Developers](http://developers.arcgis.com/)
+* [ArcGIS REST Services Directory](https://services.arcgis.com/nzS0F0zdNLvs7nc8/ArcGIS/rest/services)
 * [drawio]([https://app.diagrams.net/])
 * [replit]([https://replit.com/])
 
@@ -42,4 +43,4 @@ The programming language used is JavaScript and HTML.
 * Add river names to the waterbodies.
 * Add bridges over waterbodies.
 
-Credits: Horydczak, Theodor, Approximately, photographer. Washington Monument. Views of Washington Monument, cherry blossoms and Tidal Basin III. ca. 1920-ca. 1950. Photograph. Retrieved from the Library of Congress, <www.loc.gov/item/2019685031/>.
+Photo Credits: Horydczak, Theodor, Approximately, photographer. Washington Monument. Views of Washington Monument, cherry blossoms and Tidal Basin III. ca. 1920-ca. 1950. Photograph. Retrieved from the Library of Congress, <www.loc.gov/item/2019685031/>.
