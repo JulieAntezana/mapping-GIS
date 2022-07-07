@@ -1,9 +1,6 @@
 # mapping-GIS
 A repository for GIS Mapping projects
 
-# mapping-GIS
-A repository for GIS Mapping projects
-
 # Overview
 
 I am creating a GIS Mapping project to further my learning as a software engineer.
