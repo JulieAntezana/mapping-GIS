@@ -35,8 +35,8 @@ The programming language used is JavaScript and HTML.
 {Make a list of websites that you found helpful in this project}
 * [ArcGIS Developers](http://developers.arcgis.com/)
 * [ArcGIS REST Services Directory](https://services.arcgis.com/nzS0F0zdNLvs7nc8/ArcGIS/rest/services)
-* [drawio]([https://app.diagrams.net/)
-* [replit]([https://replit.com/)
+* [drawio](https://app.diagrams.net/)
+* [replit](https://replit.com/)
 
 # Future Work
 
