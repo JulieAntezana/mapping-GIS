@@ -10,9 +10,12 @@ This software is a map of Washington, D.C. It has four feature layers: 1. The D.
 ![image](https://user-images.githubusercontent.com/90766037/177881157-23c3044f-34e5-4dab-944e-024ed5c0d67c.png)
 
 I started by creating a GIS Mapping Diagram at diagrams.net.
+
 ![image](https://user-images.githubusercontent.com/90766037/177879552-5b7ef391-e75d-44da-85fa-00ca33bd0f89.png)
 
-My purpose for writing this software was to encourage tourism in Washington, D.C. Read more about the Tidal Basin Loop Trail at the U.S. National Park Service at [nps.gov](https://www.nps.gov/subjects/cherryblossom/tidal-basin-loop-trail.htm#:~:text=The%20Yoshino%20cherry%20is%20the,on%20the%20Washington%20Monument%20grounds).
+My purpose for writing this software was to encourage tourism in Washington, D.C. 
+Read more about the Tidal Basin Loop Trail at the U.S. National Park Service at [nps.gov](https://www.nps.gov/subjects/cherryblossom/tidal-basin-loop-trail.htm#:~:text=The%20Yoshino%20cherry%20is%20the,on%20the%20Washington%20Monument%20grounds).
+
 I hope my map will help others who may be planning to travel to the Washington, D.C. area during late March or early April when the cherry blossoms are blooming around the Tidal Basin.
 
 ![image](https://user-images.githubusercontent.com/90766037/177879926-66a1a2a6-736a-4ba3-9a34-af7a2965c699.png)
@@ -32,8 +35,8 @@ The programming language used is JavaScript and HTML.
 {Make a list of websites that you found helpful in this project}
 * [ArcGIS Developers](http://developers.arcgis.com/)
 * [ArcGIS REST Services Directory](https://services.arcgis.com/nzS0F0zdNLvs7nc8/ArcGIS/rest/services)
-* [drawio]([https://app.diagrams.net/])
-* [replit]([https://replit.com/])
+* [drawio]([https://app.diagrams.net/)
+* [replit]([https://replit.com/)
 
 # Future Work
 
