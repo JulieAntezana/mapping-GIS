@@ -28,9 +28,10 @@ require([
         // Create a map view for the HTML using the basemap
         // previously created.
           var myView = new MapView({
-            container: "viewDiv",
             map: myMap,
-            zoom: 3
+            center: [-77.045, 38.889], // longitude, latitude
+            zoom: 13, // Zoom level
+            container: "viewDiv" // div element
         });
 
 
@@ -42,7 +43,7 @@ require([
 
 
 
-        // We will use the XMLHttpRequest object to read data from the USGS
+        // We will use the XMLHttpRequest object to read data from the map service
         // server and populate graphics on our map based on the results
         // https://www.w3schools.com/js/js_ajax_http.asp
         var xmlhttp = new XMLHttpRequest();
@@ -58,78 +59,10 @@ require([
                 // can loop through
                 var data = JSON.parse(this.responseText);
 
-                // The structure of the earthquake data can be found
-                // at the USGS website:
-                // https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+                // The structure of the cherry blossom tour data can be found
+                // at the arcGIS map service website:
+                // https://services.arcgis.com/nzS0F0zdNLvs7nc8/ArcGIS/rest/services/Cherry_Blossom_map_service/FeatureServer/layers
                 
-                // Loop through each feature in the features list
-                for (feature of data.features) {    
-
-                    // Determine symbol color based on the earthquake magnitude
-                    var mag_color;
-                    var mag = feature.properties.mag;
-                    if (mag > 6) {
-                        mag_color = [168,78,50]; // Red
-                    }
-                    else if (mag > 4) {
-                        mag_color = [247,241,54]; // Yellow
-                    }
-                    else if (mag > 2) {
-                        mag_color = [52,168,50]; // Green
-                    }
-                    else {
-                        mag_color = [50, 54, 168]; // Blue
-                    }
-
-                    // Create a marker
-                    // This JS map is expected by ArcGIS to make a graphic                                 
-                    var marker = {
-                        type: "simple-marker",
-                        style: "triangle",
-                        color: mag_color
-                    };
-
-
-
-                    // Define location to draw
-                    // This JS map is expected by ArcGIS to make a graphic
-                    var location = {
-                        type: "point",
-                        longitude: feature.geometry.coordinates[0],
-                        latitude: feature.geometry.coordinates[1]
-                    };
-
-
-
-                    // Define attributes for us in popup template.  The popup
-                    // template uses {}'s to access items in the attributes map.
-                    // The template content also supports HTML tags.
-                    var popup_attributes = {
-                        mag: feature.properties.mag,
-                        place: feature.properties.place
-                    };
-                    var popup_template = {
-                        title: "Earthquake",
-                        content: "<b>Mag</b>: {mag}<br><b>Location</b>: {place}"
-                    };
-
-
-
-                    // Combine location and symbol to create a graphic object
-                    // Also include the attributes and template for popup
-
-                    var graphic = new Graphic({
-                      geometry: location,
-                      symbol: marker,
-                      attributes: popup_attributes,
-                      popupTemplate: popup_template
-                    });
-
-
-                    // Add the graphic (with its popup) to the graphics layer
-                    graphicsLayer.add(graphic);
-
-                } // End of Loop
 
             }
         }; // End of XML Call back Function
@@ -145,13 +78,29 @@ require([
         var volcanoLayer = new FeatureLayer({
             url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/test_Significant_Global_Volcanic_Eruptions_1/FeatureServer"
         });
+    var dcboundariesLayer = new FeatureLayer({
+    url:  "https://services.arcgis.com/nzS0F0zdNLvs7nc8/ArcGIS/rest/services/DC_Boundary/FeatureServer"
+  });
+  var waterbodiesLayer = new FeatureLayer({
+    url:
+      "https://services.arcgis.com/nzS0F0zdNLvs7nc8/ArcGIS/rest/services/DC_Waterbodies_2017/FeatureServer"
+  });
 
+  var cherryLayer = new FeatureLayer({
+            url: "https://services.arcgis.com/nzS0F0zdNLvs7nc8/ArcGIS/rest/services/Cherry_Blossom_map_service/FeatureServer"
+        });
+
+  var bikesLayer = new FeatureLayer({
+            url: "https://services.arcgis.com/nzS0F0zdNLvs7nc8/ArcGIS/rest/services/DC_bikeride_1433345063605/FeatureServer"
+        });
+  
         var faultsLayer = new FeatureLayer({
             url: "https://services.arcgis.com/nzS0F0zdNLvs7nc8/arcgis/rest/services/Sean_View_6/FeatureServer"
         });
-
-        myMap.add(volcanoLayer);
-        myMap.add(faultsLayer);
+        myMap.add(dcboundariesLayer);
+        myMap.add(waterbodiesLayer);
+        myMap.add(cherryLayer);
+        myMap.add(bikesLayer);
 
         // Create a locate me button
        
@@ -179,11 +128,14 @@ require([
         var legend = new Legend({
             view: myView,
             layerInfos: [{
-                layer: volcanoLayer,
-                title: "Volcano Legend"
+                layer: dcboundariesLayer,
+                title: "DC Boundaries Legend"
             }, {
-                layer: faultsLayer,
-                title: "Faults Legend"
+                layer: waterbodiesLayer,
+                title: "Water Bodies Legend"
+            }, {
+                layer: cherryLayer,
+                title: "Tour Legend"
             }]
         });
         
